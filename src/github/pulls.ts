@@ -13,6 +13,11 @@ export interface PullStats {
  * - merged in last 24h
  * - currently open count
  * - PRs open longer than `staleDays`
+ *
+ * Uses octokit.paginate() which follows Link-header cursors instead of
+ * incrementing a page offset, avoiding the GitHub 422 for large repos.
+ * An early-exit callback stops paging once we've moved past the windows
+ * we care about, keeping API usage proportional to real activity.
  */
 export async function fetchPullStats(
   fullRepo: string,
@@ -29,61 +34,49 @@ export async function fetchPullStats(
   let openPRs = 0;
   let stalePRs = 0;
 
-  // ── Open PRs (for openPRs count and stalePRs) ─────────────────────────────
-  let page = 1;
-  while (true) {
-    const { data } = await client.pulls.list({
-      owner,
-      repo,
-      state: 'open',
-      per_page: 100,
-      page,
-      sort: 'created',
-      direction: 'desc',
-    });
+  // ── Open PRs — sorted newest-first so we can count openPRs and stalePRs ──
+  // We accumulate all open PRs (no early exit possible: stale ones are at the
+  // end when sorting desc). For very large open-PR backlogs we cap at 5,000
+  // (50 pages) to stay within a sensible rate-limit budget.
+  const MAX_OPEN_PR_PAGES = 50;
+  let openPRPages = 0;
 
-    if (data.length === 0) break;
-
-    for (const pr of data) {
-      openPRs++;
-      if (pr.created_at < staleThreshold) stalePRs++;
-    }
-
-    if (data.length < 100) break;
-    page++;
-  }
-
-  // ── PRs opened in last 24h (state=all, filter by created_at) ─────────────
-  page = 1;
-  while (true) {
-    const { data } = await client.pulls.list({
-      owner,
-      repo,
-      state: 'all',
-      per_page: 100,
-      page,
-      sort: 'created',
-      direction: 'desc',
-    });
-
-    if (data.length === 0) break;
-
-    // Once we're past the 24h window we can stop paginating
-    const anyInWindow = data.some((pr) => pr.created_at >= since24h);
-    if (!anyInWindow) break;
-
-    for (const pr of data) {
-      if (pr.created_at >= since24h) {
-        pullRequestsOpened++;
+  await client.paginate(
+    client.pulls.list,
+    { owner, repo, state: 'open', per_page: 100, sort: 'created', direction: 'desc' },
+    (response, done) => {
+      openPRPages++;
+      for (const pr of response.data) {
+        openPRs++;
+        if (pr.created_at < staleThreshold) stalePRs++;
       }
-      if (pr.merged_at && pr.merged_at >= since24h) {
-        pullRequestsMerged++;
-      }
+      if (openPRPages >= MAX_OPEN_PR_PAGES) done();
+      return response.data;
     }
+  );
 
-    if (data.length < 100) break;
-    page++;
-  }
+  // ── PRs opened/merged in the last 24h ─────────────────────────────────────
+  // Sort newest-first and stop paging as soon as a full page falls outside
+  // the 24h window — keeps this to 1–2 pages in most cases.
+  await client.paginate(
+    client.pulls.list,
+    { owner, repo, state: 'all', per_page: 100, sort: 'created', direction: 'desc' },
+    (response, done) => {
+      let anyInWindow = false;
+      for (const pr of response.data) {
+        if (pr.created_at >= since24h) {
+          anyInWindow = true;
+          pullRequestsOpened++;
+        }
+        if (pr.merged_at && pr.merged_at >= since24h) {
+          pullRequestsMerged++;
+        }
+      }
+      // Once every PR on this page is older than 24h we're done
+      if (!anyInWindow) done();
+      return response.data;
+    }
+  );
 
   return { pullRequestsOpened, pullRequestsMerged, openPRs, stalePRs };
 }
