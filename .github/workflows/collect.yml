@@ -81,6 +81,12 @@ jobs:
         working-directory: dashboard
         run: npm run build
 
+      - name: Copy data files into dashboard dist
+        # The dashboard fetches /RepoRadar/data/latest.json at runtime.
+        # Pages only serves dashboard/dist/, so we bundle the data/ folder
+        # into the artifact here so the fetch resolves correctly.
+        run: cp -r data/ dashboard/dist/data/
+
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
 
