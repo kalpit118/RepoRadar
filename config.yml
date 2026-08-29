@@ -1,0 +1,19 @@
+# RepoRadar Configuration
+# Add or remove repositories in the list below.
+# Format: "owner/repo"
+
+repositories:
+  - microsoft/vscode
+  - facebook/react
+  - nodejs/node
+  - vercel/next.js
+  - rust-lang/rust
+
+# Optional settings
+settings:
+  # How many days counts as a "stale" PR (default: 7)
+  stalePRDays: 7
+  # How many days counts as a "stale" issue (default: 30)
+  staleIssueDays: 30
+  # Timezone for date labeling (default: UTC)
+  timezone: "UTC"

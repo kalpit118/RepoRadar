@@ -1,0 +1,74 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-4);
+  margin: var(--space-8) 0;
+}
+
+.card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-6);
+}
+
+.iconWrapper {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.label {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  margin-bottom: var(--space-1);
+}
+
+.value {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.sub {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  margin-top: var(--space-1);
+}
+
+.skeletonValue {
+  height: 28px;
+  width: 80px;
+  margin-bottom: var(--space-1);
+}
+
+.skeletonSub {
+  height: 12px;
+  width: 100px;
+}
+
+/* Gradient variants */
+.gradViolet { background: linear-gradient(135deg, rgba(108,99,255,0.3), rgba(108,99,255,0.1)); }
+.gradYellow { background: linear-gradient(135deg, rgba(247,183,49,0.3), rgba(247,183,49,0.1)); }
+.gradGreen  { background: linear-gradient(135deg, rgba(0,245,160,0.3), rgba(0,245,160,0.1)); }
+.gradCyan   { background: linear-gradient(135deg, rgba(62,207,207,0.3), rgba(62,207,207,0.1)); }
+.gradPink   { background: linear-gradient(135deg, rgba(247,37,133,0.3), rgba(247,37,133,0.1)); }
