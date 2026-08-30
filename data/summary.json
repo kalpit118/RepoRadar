@@ -1,64 +1,64 @@
 {
-  "generatedAt": "2026-08-29T02:44:15.704Z",
+  "generatedAt": "2026-08-30T07:48:38.884Z",
   "trackedRepositories": 5,
-  "totalStars": 815743,
-  "totalForks": 177028,
-  "totalOpenPRs": 7009,
-  "totalStalePRs": 6428,
-  "totalStaleIssues": 17576,
-  "prsLast24h": 201,
-  "issuesLast24h": 144,
-  "commitsLast24h": 150,
+  "totalStars": 816982,
+  "totalForks": 177089,
+  "totalOpenPRs": 7036,
+  "totalStalePRs": 6449,
+  "totalStaleIssues": 17578,
+  "prsLast24h": 100,
+  "issuesLast24h": 81,
+  "commitsLast24h": 46,
   "repositories": [
     {
       "repository": "microsoft/vscode",
-      "stars": 189757,
-      "forks": 41873,
-      "openPRs": 2415,
-      "stalePRs": 2229,
-      "staleIssues": 7061,
+      "stars": 190048,
+      "forks": 41899,
+      "openPRs": 2425,
+      "stalePRs": 2234,
+      "staleIssues": 7054,
       "latestRelease": "1.135.0",
-      "daysSinceRelease": 2
-    },
-    {
-      "repository": "facebook/react",
-      "stars": 248014,
-      "forks": 51256,
-      "openPRs": 449,
-      "stalePRs": 422,
-      "staleIssues": 742,
-      "latestRelease": "v19.2.8",
-      "daysSinceRelease": 38
-    },
-    {
-      "repository": "nodejs/node",
-      "stars": 119661,
-      "forks": 36618,
-      "openPRs": 556,
-      "stalePRs": 472,
-      "staleIssues": 389,
-      "latestRelease": "v26.8.1",
-      "daysSinceRelease": 2
-    },
-    {
-      "repository": "vercel/next.js",
-      "stars": 141980,
-      "forks": 31807,
-      "openPRs": 2229,
-      "stalePRs": 2115,
-      "staleIssues": 0,
-      "latestRelease": "v16.3.3",
       "daysSinceRelease": 3
     },
     {
+      "repository": "facebook/react",
+      "stars": 248324,
+      "forks": 51263,
+      "openPRs": 474,
+      "stalePRs": 422,
+      "staleIssues": 747,
+      "latestRelease": "v19.2.8",
+      "daysSinceRelease": 39
+    },
+    {
+      "repository": "nodejs/node",
+      "stars": 119953,
+      "forks": 36632,
+      "openPRs": 565,
+      "stalePRs": 477,
+      "staleIssues": 389,
+      "latestRelease": "v26.8.1",
+      "daysSinceRelease": 3
+    },
+    {
+      "repository": "vercel/next.js",
+      "stars": 142016,
+      "forks": 31818,
+      "openPRs": 2227,
+      "stalePRs": 2116,
+      "staleIssues": 0,
+      "latestRelease": "v16.3.3",
+      "daysSinceRelease": 4
+    },
+    {
       "repository": "rust-lang/rust",
-      "stars": 116331,
-      "forks": 15474,
-      "openPRs": 1360,
-      "stalePRs": 1190,
-      "staleIssues": 9384,
+      "stars": 116641,
+      "forks": 15477,
+      "openPRs": 1345,
+      "stalePRs": 1200,
+      "staleIssues": 9388,
       "latestRelease": "1.98.0",
-      "daysSinceRelease": 8
+      "daysSinceRelease": 9
     }
   ]
 }
