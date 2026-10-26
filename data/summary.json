@@ -1,64 +1,64 @@
 {
-  "generatedAt": "2026-10-25T07:15:20.269Z",
+  "generatedAt": "2026-10-26T07:23:45.129Z",
   "trackedRepositories": 5,
-  "totalStars": 833076,
-  "totalForks": 189376,
-  "totalOpenPRs": 8371,
-  "totalStalePRs": 7745,
-  "totalStaleIssues": 18104,
-  "prsLast24h": 115,
-  "issuesLast24h": 49,
-  "commitsLast24h": 64,
+  "totalStars": 833378,
+  "totalForks": 187776,
+  "totalOpenPRs": 8378,
+  "totalStalePRs": 7765,
+  "totalStaleIssues": 18109,
+  "prsLast24h": 130,
+  "issuesLast24h": 89,
+  "commitsLast24h": 178,
   "repositories": [
     {
       "repository": "microsoft/vscode",
-      "stars": 194265,
-      "forks": 45245,
-      "openPRs": 3039,
-      "stalePRs": 2813,
+      "stars": 194313,
+      "forks": 44856,
+      "openPRs": 3050,
+      "stalePRs": 2831,
       "staleIssues": 6574,
       "latestRelease": "1.143.1",
-      "daysSinceRelease": 2
-    },
-    {
-      "repository": "facebook/react",
-      "stars": 251759,
-      "forks": 51564,
-      "openPRs": 610,
-      "stalePRs": 546,
-      "staleIssues": 781,
-      "latestRelease": "v19.3.1",
-      "daysSinceRelease": 10
-    },
-    {
-      "repository": "nodejs/node",
-      "stars": 123067,
-      "forks": 39625,
-      "openPRs": 647,
-      "stalePRs": 564,
-      "staleIssues": 345,
-      "latestRelease": "v26.12.1",
       "daysSinceRelease": 3
     },
     {
+      "repository": "facebook/react",
+      "stars": 251857,
+      "forks": 51575,
+      "openPRs": 615,
+      "stalePRs": 550,
+      "staleIssues": 781,
+      "latestRelease": "v19.3.1",
+      "daysSinceRelease": 11
+    },
+    {
+      "repository": "nodejs/node",
+      "stars": 123101,
+      "forks": 39228,
+      "openPRs": 646,
+      "stalePRs": 565,
+      "staleIssues": 349,
+      "latestRelease": "v26.12.1",
+      "daysSinceRelease": 4
+    },
+    {
       "repository": "vercel/next.js",
-      "stars": 143223,
-      "forks": 34546,
-      "openPRs": 2629,
-      "stalePRs": 2505,
-      "staleIssues": 922,
+      "stars": 143295,
+      "forks": 34121,
+      "openPRs": 2630,
+      "stalePRs": 2509,
+      "staleIssues": 923,
       "latestRelease": "v16.4.3",
-      "daysSinceRelease": 1
+      "daysSinceRelease": 2
     },
     {
       "repository": "rust-lang/rust",
-      "stars": 120762,
-      "forks": 18396,
-      "openPRs": 1446,
-      "stalePRs": 1317,
+      "stars": 120812,
+      "forks": 17996,
+      "openPRs": 1437,
+      "stalePRs": 1310,
       "staleIssues": 9482,
       "latestRelease": "1.99.1",
-      "daysSinceRelease": 9
+      "daysSinceRelease": 10
     }
   ]
 }
